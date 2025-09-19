@@ -3,7 +3,7 @@ use friendbank::models::UserData;
 use friendbank::services::user_service;
 
 #[tokio::main]
-async fn main() -> anyhow::Result<()> {
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     run(|req: Request| async move {
         let body_bytes = req.body().to_vec();
         let user_data: UserData = match serde_json::from_slice(&body_bytes) {
