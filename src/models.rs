@@ -11,8 +11,8 @@ pub struct User {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct LoginResponse {
-    pub token: String;
-    pub role: String;
+    pub token: String,
+    pub role: String,
 }
 
 #[derive(Serialize, Deserialize)]
