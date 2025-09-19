@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use rust_decimal::Decimal;
 
-#[derive(Debug, Serialize, Deserialize)];
+#[derive(Debug, Serialize, Deserialize)]
 pub struct User {
     pub id: i32,
     pub username: String,
@@ -9,7 +9,7 @@ pub struct User {
     pub role: String,
 }
 
-#[derive(Debug, Serialize, Deserialize)];
+#[derive(Debug, Serialize, Deserialize)]
 pub struct LoginResponse {
     pub token: String;
     pub role: String;
