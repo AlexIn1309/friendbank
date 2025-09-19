@@ -25,7 +25,3 @@ vercel_runtime = "1.1.4"
 [lib]
 name = "friendbank"
 path = "src/lib.rs"
-
-[[bin]]
-name = "main"
-path = "api/login/main.rs"
