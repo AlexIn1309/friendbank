@@ -2,7 +2,6 @@
 name = "friendbank"
 version = "0.1.0"
 edition = "2024"
-default-run = "login"
 
 [dependencies]
 sqlx = { version = "0.7", features = [
@@ -28,5 +27,5 @@ name = "friendbank"
 path = "src/lib.rs"
 
 [[bin]]
-name = "login"
+name = "main"
 path = "api/login/main.rs"
