@@ -2,6 +2,7 @@
 name = "friendbank"
 version = "0.1.0"
 edition = "2024"
+default-run = "login"
 
 [dependencies]
 sqlx = { version = "0.7", features = [
