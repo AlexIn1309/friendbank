@@ -6,7 +6,7 @@ use crate::auth::{verify_password, generate_jwt};
 pub async fn login(user_data: &UserData) -> Result<LoginResponse, String> {
     let pool = db::get_pool().await.map_err(|_| "DB error")?;
 
-    let row = sqlx::query("SELECT id, username, password_hash, role FROM users WHERE username = $1")
+    let row = sqlx::query("SELECT id, username, password_hash, role FROM \"User\" WHERE username = $1")
         .bind(&user_data.username)
         .fetch_one(&pool)
         .await
