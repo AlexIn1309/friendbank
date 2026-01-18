@@ -1,30 +1,82 @@
-use sqlx::Row;
-use crate::models::{UserData, User, LoginResponse};
+use sqlx::{Postgres, Transaction};
+
 use crate::db;
-use crate::auth::{verify_password, generate_jwt};
+use crate::errors::user_error::UserError;
 
-pub async fn login(user_data: &UserData) -> Result<LoginResponse, String> {
-    let pool = db::get_pool().await.map_err(|_| "DB error")?;
+use crate::models::dto::auth_dto::RegisterRequest;
+use crate::models::dto::user_response::UserResponse;
 
-    let row = sqlx::query("SELECT id, username, password_hash, role FROM \"User\" WHERE username = $1")
-        .bind(&user_data.username)
-        .fetch_one(&pool)
-        .await
-        .map_err(|_| "Usuario no encontrado")?;
+use crate::repositories::{
+    user_repository,
+    account_repository,
+};
 
-    let user = User {
-        id: row.get("id"),
-        username: row.get("username"),
-        password_hash: row.get("password_hash"),
-        role: row.get("role"),
-    };
+pub async fn register(
+    req: &RegisterRequest,
+) -> Result<UserResponse, UserError> {
+    let pool = db::get_pool().await.map_err(|_| UserError::DatabaseError)?;
+    let mut tx = pool.begin().await.map_err(|_| UserError::DatabaseError)?;
 
-    if !verify_password(&user_data.password, &user.password_hash) {
-        return Err("Contraseña incorrecta".into());
+    if user_repository::find_by_username(&mut tx, &req.username)
+        .await?
+        .is_some()
+    {
+        tx.rollback().await.ok();
+        return Err(UserError::UserAlreadyExists);
     }
 
-    let token = generate_jwt(&user.username, &user.role).map_err(|_| "Error al generar JWT")?;
+    let hashed = bcrypt::hash(&req.password, 10)
+        .map_err(|_| UserError::InternalError)?;
 
-    Ok(LoginResponse { token, role: user.role })
+    let user_id = user_repository::insert_user(
+        &mut tx,
+        &req.username,
+        &hashed,
+        2,
+    )
+    .await?;
+
+    account_repository::create_account(&mut tx, user_id).await?;
+
+    tx.commit().await.map_err(|_| UserError::DatabaseError)?;
+
+    Ok(UserResponse {
+        id: user_id,
+        username: req.username.clone(),
+        role_id: 2,
+    })
+}
+
+pub async fn register_with_tx(
+    tx: &mut Transaction<'_, Postgres>,
+    req: &RegisterRequest,
+) -> Result<UserResponse, UserError> {
+    if user_repository::find_by_username(tx, &req.username)
+        .await?
+        .is_some()
+    {
+        return Err(UserError::UserAlreadyExists);
+    }
+
+    let hashed = bcrypt::hash(&req.password, 10)
+        .map_err(|_| UserError::InternalError)?;
+
+    let user_id = user_repository::insert_user(
+        tx,
+        &req.username,
+        &hashed,
+        2,
+    )
+    .await?;
+
+    account_repository::create_account(tx, user_id).await?;
+
+    
+    Ok(UserResponse {
+        id: user_id,
+        username: req.username.clone(),
+        role_id: 2,
+    })
+
 }
 

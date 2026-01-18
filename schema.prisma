@@ -1,0 +1,90 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 1. Catálogo de Roles
+model Role {
+  id    Int    @id @default(autoincrement())
+  name  String @unique // accountant (ID 1) o user (ID 2)
+  users User[]
+}
+
+// 2. Maestro de Usuarios
+model User {
+  id            Int      @id @default(autoincrement())
+  username      String   @unique
+  password_hash String
+  created_at    DateTime @default(now())
+  role_id       Int      @default(2) // Por defecto es 'user' (ID 2)
+  role          Role     @relation(fields: [role_id], references: [id])
+  account       Account? 
+  refreshTokens RefreshToken[]
+  audit_actions AuditLog[]    @relation("performed_by") // Acciones que hizo como accountant
+  received_logs AuditLog[]    @relation("received_by")  // Depósitos que recibió del accountant
+  transactions_sent     Transaction[] @relation("sent")
+  transactions_received Transaction[] @relation("received")
+}
+
+model RefreshToken {
+  id          String   @id @default(uuid()) @db.Uuid
+  user_id     Int
+  expires_at  DateTime
+  revoked     Boolean  @default(false)
+  created_at DateTime @default(now())
+
+  user        User     @relation(fields: [user_id], references: [id])
+
+  @@index([user_id])
+}
+
+// 3. Estado de Cuenta (Friendcoins)
+model Account {
+  id       Int     @id @default(autoincrement())
+  user_id  Int     @unique
+  balance  Decimal @db.Decimal(10,2) @default(0.00) // Saldo actual disponible
+  user     User    @relation(fields: [user_id], references: [id])
+}
+
+// 4. Registro de Auditoría (Acciones del Contador)
+model AuditLog {
+  id                 Int      @id @default(autoincrement())
+  amount             Decimal  @db.Decimal(15,2)
+  type               String   // DEPOSIT o WITHDRAW
+  created_at         DateTime @default(now())
+  
+  // Quién hizo la operación (El Accountant)
+  accountant_user_id Int
+  accountant         User     @relation("performed_by", fields: [accountant_user_id], references: [id])
+
+  // A quién se le hizo la operación (El Usuario final)
+  target_user_id     Int
+  target_user        User     @relation("received_by", fields: [target_user_id], references: [id])
+}
+
+// 5. Transferencias entre Usuarios (P2P)
+model Transaction {
+  id           Int      @id @default(autoincrement())
+  sender_id    Int
+  recipient_id Int
+  amount       Decimal  @db.Decimal(10,2)
+  created_at   DateTime @default(now())
+  
+  sender       User     @relation("sent", fields: [sender_id], references: [id])
+  recipient    User     @relation("received", fields: [recipient_id], references: [id])
+}
+
+// 6. Métricas Globales (Singletons)
+model TotalSupply {
+  id           Int     @id @default(autoincrement())
+  total_amount Decimal @db.Decimal(15,2) @default(0.00) // Dinero total en el sistema
+}
+
+model TransactionCount {
+  id    Int @id @default(autoincrement())
+  count Int @default(0) // Contador total de operaciones para el dashboard
+}

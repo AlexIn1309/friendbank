@@ -1,0 +1,55 @@
+Environment variables loaded from .env
+Prisma schema loaded from schema.prisma
+Datasource "db": PostgreSQL database "postgres", schema "public" at "db.prisma.io:5432"
+Error: P1012
+
+error: Expected a string value, but received literal value `performed_by`.
+  -->  schema.prisma:30
+   | 
+29 |   account       Account? 
+30 |   audit_actions AuditLog[]    @relation(performed_by) // Acciones que hizo como accountant
+   | 
+error: Expected a string value, but received literal value `received_by`.
+  -->  schema.prisma:31
+   | 
+30 |   audit_actions AuditLog[]    @relation(performed_by) // Acciones que hizo como accountant
+31 |   received_logs AuditLog[]    @relation(received_by)  // Depósitos que recibió del accountant
+   | 
+error: Expected a string value, but received literal value `sent`.
+  -->  schema.prisma:32
+   | 
+31 |   received_logs AuditLog[]    @relation(received_by)  // Depósitos que recibió del accountant
+32 |   transactions_sent     Transaction[] @relation(sent)
+   | 
+error: Expected a string value, but received literal value `received`.
+  -->  schema.prisma:33
+   | 
+32 |   transactions_sent     Transaction[] @relation(sent)
+33 |   transactions_received Transaction[] @relation(received)
+   | 
+error: Expected a string value, but received literal value `performed_by`.
+  -->  schema.prisma:53
+   | 
+52 |   accountant_user_id Int
+53 |   accountant         User     @relation(performed_by, fields: [accountant_user_id], references: [id])
+   | 
+error: Expected a string value, but received literal value `received_by`.
+  -->  schema.prisma:57
+   | 
+56 |   target_user_id     Int
+57 |   target_user        User     @relation(received_by, fields: [target_user_id], references: [id])
+   | 
+error: Expected a string value, but received literal value `sent`.
+  -->  schema.prisma:68
+   | 
+67 |   
+68 |   sender       User     @relation(sent, fields: [sender_id], references: [id])
+   | 
+error: Expected a string value, but received literal value `received`.
+  -->  schema.prisma:69
+   | 
+68 |   sender       User     @relation(sent, fields: [sender_id], references: [id])
+69 |   recipient    User     @relation(received, fields: [recipient_id], references: [id])
+   | 
+
+
