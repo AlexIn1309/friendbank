@@ -32,8 +32,8 @@ uuid = { version = "1.19.0", features = ["v4", "serde"] }
 name = "main"
 path = "api/login.rs"
 [[bin]]
-name = "refresh"
+name = "main"
 path = "api/refresh/refresh.rs"
 [[bin]]
-name = "register"
+name = "main"
 path = "api/register/register.rs"
