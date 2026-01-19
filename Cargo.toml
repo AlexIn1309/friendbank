@@ -32,7 +32,7 @@ uuid = { version = "1.19.0", features = ["v4", "serde"] }
 name = "login"
 path = "api/login.rs"
 [[bin]]
-name = "refresh"
+name = "main"
 path = "api/refresh/refresh.rs"
 [[bin]]
 name = "register"
