@@ -33,7 +33,7 @@ name = "login"
 path = "api/login.rs"
 [[bin]]
 name = "main"
-path = "api/refresh/refresh.rs"
+path = "api/refresh.rs"
 [[bin]]
 name = "register"
-path = "api/register/register.rs"
+path = "api/register.rs"
