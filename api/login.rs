@@ -15,7 +15,10 @@ pub async fn handler(req: Request) -> Result<Response<Body>, Error> {
             .status(StatusCode::METHOD_NOT_ALLOWED)
             .body(Body::Text("Only POST".to_string()))?);
     }
-
+    println!(
+        "DATABASE_URL presente: {}",
+        std::env::var("DATABASE_URL").is_ok()
+    );
     let body_bytes = req.body().to_vec();
 
     let login_request: LoginRequest = match serde_json::from_slice(&body_bytes) {
