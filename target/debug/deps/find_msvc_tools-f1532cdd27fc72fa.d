@@ -1,9 +1,0 @@
-/Users/cesaralejandromorangraciano/Documents/Coding/rust/friendbank/target/debug/deps/find_msvc_tools-f1532cdd27fc72fa.d: /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/lib.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/find_tools.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/tool.rs
-
-/Users/cesaralejandromorangraciano/Documents/Coding/rust/friendbank/target/debug/deps/libfind_msvc_tools-f1532cdd27fc72fa.rlib: /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/lib.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/find_tools.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/tool.rs
-
-/Users/cesaralejandromorangraciano/Documents/Coding/rust/friendbank/target/debug/deps/libfind_msvc_tools-f1532cdd27fc72fa.rmeta: /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/lib.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/find_tools.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/tool.rs
-
-/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/lib.rs:
-/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/find_tools.rs:
-/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/tool.rs:

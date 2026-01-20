@@ -1,8 +1,0 @@
-/Users/cesaralejandromorangraciano/Documents/Coding/rust/friendbank/target/debug/deps/paste-3d3340fc239ee9a6.d: /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/lib.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/attr.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/error.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/segment.rs
-
-/Users/cesaralejandromorangraciano/Documents/Coding/rust/friendbank/target/debug/deps/libpaste-3d3340fc239ee9a6.dylib: /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/lib.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/attr.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/error.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/segment.rs
-
-/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/lib.rs:
-/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/attr.rs:
-/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/error.rs:
-/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/paste-1.0.15/src/segment.rs:

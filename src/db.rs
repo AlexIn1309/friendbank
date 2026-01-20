@@ -1,7 +1,15 @@
 use sqlx::{Pool, Postgres};
 
 pub async fn get_pool() -> Result<Pool<Postgres>, sqlx::Error> {
-    let db_url = std::env::var("DATABASE_URL")
-        .expect("DATABASE_URL no configurada en el entorno");
-    Pool::<Postgres>::connect(&db_url).await
-}    
+    match std::env::var("DATABASE_URL") {
+        Ok(db_url) => {
+            println!("DATABASE_URL presente: true");
+            Pool::<Postgres>::connect(&db_url).await
+        }
+        Err(e) => {
+            println!("DATABASE_URL presente: false -> {:?}", e);
+            Err(sqlx::Error::Configuration(Box::new(e)))
+        }
+    }
+}
+
