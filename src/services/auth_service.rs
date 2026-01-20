@@ -94,6 +94,6 @@ pub async fn login(req: LoginRequest) -> Result<LoginResponse, UserError> {
 Ok(LoginResponse {
         token,
         refresh_token,
-        role: user.role_id.to_string(),
+        role: user.role_id,
     })
 }
