@@ -3,6 +3,7 @@ use friendbank::services::auth_service;
 use friendbank::errors::http_errors::map_auth_error;
 use friendbank::models::dto::auth_dto::LoginRequest;
 
+
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     run(handler).await
