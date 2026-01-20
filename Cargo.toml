@@ -29,10 +29,10 @@ thiserror = "1.0"
 uuid = { version = "1.19.0", features = ["v4", "serde"] }
 
 [[bin]]
-name = "login"
+name = "main"
 path = "api/login.rs"
 [[bin]]
-name = "main"
+name = "refresh"
 path = "api/refresh.rs"
 [[bin]]
 name = "register"
