@@ -1,0 +1,9 @@
+/Users/cesaralejandromorangraciano/Documents/Coding/rust/friendbank/target/release/deps/stringprep-c6fde9186e297ec4.d: /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/lib.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/rfc3454.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/tables.rs
+
+/Users/cesaralejandromorangraciano/Documents/Coding/rust/friendbank/target/release/deps/libstringprep-c6fde9186e297ec4.rlib: /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/lib.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/rfc3454.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/tables.rs
+
+/Users/cesaralejandromorangraciano/Documents/Coding/rust/friendbank/target/release/deps/libstringprep-c6fde9186e297ec4.rmeta: /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/lib.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/rfc3454.rs /Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/tables.rs
+
+/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/lib.rs:
+/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/rfc3454.rs:
+/Users/cesaralejandromorangraciano/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/stringprep-0.1.5/src/tables.rs:
