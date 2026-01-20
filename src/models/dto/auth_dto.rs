@@ -10,7 +10,7 @@ pub struct LoginRequest {
 pub struct LoginResponse {
     pub token: String,
     pub refresh_token: String,
-    pub role: String,
+    pub role: i32,
 }
 
 #[derive(Deserialize)]
